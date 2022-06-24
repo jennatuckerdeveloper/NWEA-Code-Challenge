@@ -1,0 +1,138 @@
+[
+  {
+    "className": "Mathematics",
+    "students": [
+      {
+        "studentName": "Darth Vader",
+        "tests": [
+          {
+            "testName": "Week 1 pre-exam",
+            "testScore": 93
+          },
+          {
+            "testName": "Week 2 exam",
+            "testScore": 80
+          },
+          {
+            "testName": "Week 3 exam",
+            "testScore": 70
+          },
+          {
+            "testName": "Week 4 exam",
+            "testScore": 90
+          }
+        ]
+      },
+      {
+        "studentName": "Obi-Wan Kenobi",
+        "tests": [
+          {
+            "testName": "Week 1 pre-exam",
+            "testScore": 47
+          },
+          {
+            "testName": "Week 2 exam",
+            "testScore": 81
+          },
+          {
+            "testName": "Week 3 exam",
+            "testScore": 99
+          },
+          {
+            "testName": "Week 4 exam",
+            "testScore": 48
+          }
+        ]
+      },
+      {
+        "studentName": "Death Star Engineer",
+        "tests": [
+          {
+            "testName": "Week 1 pre-exam",
+            "testScore": 89
+          },
+          {
+            "testName": "Week 2 exam",
+            "testScore": 98
+          },
+          {
+            "testName": "Week 3 exam",
+            "testScore": 87
+          },
+          {
+            "testName": "Week 4 exam",
+            "testScore": 92
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "className": "Science",
+    "students": [
+      {
+        "studentName": "Darth Vader",
+        "tests": [
+          {
+            "testName": "Week 1 pre-exam",
+            "testScore": 83
+          },
+          {
+            "testName": "Week 2 exam",
+            "testScore": 40
+          },
+          {
+            "testName": "Week 3 exam",
+            "testScore": 83
+          },
+          {
+            "testName": "Week 4 exam",
+            "testScore": 71
+          }
+        ]
+      },
+      {
+        "studentName": "Obi-Wan Kenobi",
+        "tests": [
+          {
+            "testName": "Week 1 pre-exam",
+            "testScore": 98
+          },
+          {
+            "testName": "Week 2 exam",
+            "testScore": 41
+          },
+          {
+            "testName": "Week 3 exam",
+            "testScore": 79
+          },
+          {
+            "testName": "Week 4 exam",
+            "testScore": 58
+          }
+        ]
+      },
+      {
+        "studentName": "Death Star Engineer",
+        "tests": [
+          {
+            "testName": "Week 1 pre-exam",
+            "testScore": 99
+          },
+          {
+            "testName": "Week 2 exam",
+            "testScore": 97
+          },
+          {
+            "testName": "Week 3 exam",
+            "testScore": 92
+          },
+          {
+            "testName": "Week 4 exam",
+            "testScore": 94
+          }
+        ]
+      }
+    ]
+  }
+]
