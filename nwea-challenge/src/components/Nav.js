@@ -5,11 +5,13 @@ const Nav = ({
 	onStudentsClick
 }) => {
 	return (
-		<ul>
-			<li onClick={onClassesClick}>Classes </li>
-			{selectedCourse && <li onClick={onStudentsClick}>Students</li>}
-			{selectedStudent && <li>Tests</li>}
-		</ul>
+		<nav>
+			<ul>
+				<li onClick={onClassesClick}>Classes </li>
+				{selectedCourse && <li onClick={onStudentsClick}>Students</li>}
+				{selectedCourse && selectedStudent && <li>Tests</li>}
+			</ul>
+		</nav>
 	)
 }
 

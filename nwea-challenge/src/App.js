@@ -1,73 +1,70 @@
 import { useState, useEffect } from 'react'
 import { getCourses } from './services/courseService'
-import AllCourses from './components/AllCourses'
-import CourseStudents from './components/CourseStudents'
-import Student from './components/Student'
+import Main from './components/Main'
 import Nav from './components/Nav'
 
+// App controls highest level of state derivation.
 function App() {
+	// The app has 3 state values.
+
+	// The courses get fetched when the app loads.
 	const [courses, setCourses] = useState([])
+
+	// The user can select a specific course and a specific student.
 	const [selectedCourse, setSelectedCourse] = useState(null)
 	const [selectedStudent, setSelectedStudent] = useState(null)
 
+	// Fetch the courses.
 	useEffect(() => {
 		try {
 			fetchCourses()
 		} catch (ex) {}
+		// Empty dependency array to prevent infinite loop.
 	}, [])
+
+	// Asynchronous fetch and load called by useEffect.
 	const fetchCourses = async () => {
 		const courses = await getCourses()
 		setCourses(courses)
 	}
+
+	// When user selects course.
 	const onCourseSelect = (courseName) => {
 		setSelectedCourse(courseName)
 	}
 
+	// When user selects student.
 	const onStudentSelect = (studentName) => {
 		setSelectedStudent(studentName)
 	}
 
-	const getStudents = () => {
-		const chosenCourse = courses.filter(
-			(course) => course.className === selectedCourse
-		)
-		if (!chosenCourse.length) return []
-		return chosenCourse[0].students
+	// Clear selected student.
+	const clearSelectedStudent = () => {
+		setSelectedStudent(null)
 	}
 
-	const students = getStudents()
-
-	const getStudentTests = () => {
-		const chosenCourse = courses.filter(
-			(course) => course.className === selectedCourse
-		)
-		if (!chosenCourse.length) return null
-		const students = chosenCourse[0].students
-		const student = students.filter(
-			(student) => student.studentName === selectedStudent
-		)
-		if (!student.length) return null
-		return student[0]
+	// Clear selected course.  Needs to also clear student.
+	const clearSelectedCourse = () => {
+		setSelectedCourse(null)
+		clearSelectedStudent()
 	}
-
-	const studentTests = getStudentTests()
 
 	return (
-		<main className='App'>
+    <div className='App'>
 			<Nav
 				selectedCourse={selectedCourse}
 				selectedStudent={selectedStudent}
-				onClassesClick={() => setSelectedCourse(null)}
-				onStudentsClick={() => setSelectedStudent(null)}
+				onClassesClick={clearSelectedCourse}
+				onStudentsClick={clearSelectedStudent}
 			/>
-			{!selectedCourse && (
-				<AllCourses courses={courses} onCourseSelect={onCourseSelect} />
-			)}
-			{selectedCourse && !selectedStudent && (
-				<CourseStudents students={students} onStudentSelect={onStudentSelect} />
-			)}
-			{selectedStudent && <Student student={studentTests} />}
-		</main>
+			<Main
+				courses={courses}
+				selectedCourse={selectedCourse}
+				onCourseSelect={onCourseSelect}
+				selectedStudent={selectedStudent}
+				onStudentSelect={onStudentSelect}
+			/>
+		</div>
 	)
 }
 
