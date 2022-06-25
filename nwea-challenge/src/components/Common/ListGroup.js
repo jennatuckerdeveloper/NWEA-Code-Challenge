@@ -1,3 +1,17 @@
+/*
+  ListGroup is a common, reusable component that defines a clean
+  interface for displaying lists of items.  
+
+  The component makes use of bracket notation to allow a generic 
+  concept of an item to access many types of object. 
+
+  The action param has a default value of true that determines the 
+  CSS styles and enables hover, disabled, and active states.
+
+  The textProperties param expects an array and dynamically renders
+  a row of columns to allow for more than one item property to show.
+*/ 
+
 const ListGroup = ({
 	title,
 	items,
