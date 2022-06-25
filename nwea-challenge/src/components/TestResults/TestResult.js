@@ -1,6 +1,6 @@
 const TestResult = ({ test }) => {
 	return (
-		<li>
+		<li className='list-group-item'>
 			{test.testName} {test.testScore}
 		</li>
 	)

@@ -4,7 +4,7 @@ const AllCourses = ({ courses, onCourseSelect }) => {
 	return (
 		<section>
 			<h1>Courses</h1>
-			<ul>
+			<ul className='list-group'>
 				{courses.map((course) => (
 					<Course
 						key={course.className}

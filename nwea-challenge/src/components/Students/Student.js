@@ -1,11 +1,10 @@
-import StudentTests from '../TestResults/StudentTests'
-
-const Student = ({ student }) => {
+const Student = ({ studentName, onStudentSelect }) => {
 	return (
-		<section>
-			<h1>{student.studentName}</h1>
-			<StudentTests tests={student.tests} />
-		</section>
+		<li
+			className='list-group-item list-group-item-action'
+			onClick={() => onStudentSelect(studentName)}>
+			{studentName}
+		</li>
 	)
 }
 

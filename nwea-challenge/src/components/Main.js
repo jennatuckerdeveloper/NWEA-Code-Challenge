@@ -1,6 +1,6 @@
 import AllCourses from './Courses/AllCourses'
 import CourseStudents from './Students/CourseStudents'
-import Student from './Students/Student'
+import StudentInfo from './TestResults/StudentInfo'
 
 // Main controls the conditional rendering of components with derived values computed from state.
 const Main = ({
@@ -35,14 +35,14 @@ const Main = ({
 
 	return (
 		// Conditionally render 1 of 3 components.
-		<main>
+		<main className='main p-2'>
 			{!selectedCourse && (
 				<AllCourses courses={courses} onCourseSelect={onCourseSelect} />
 			)}
 			{selectedCourse && !selectedStudent && (
 				<CourseStudents students={students} onStudentSelect={onStudentSelect} />
 			)}
-			{selectedCourse && selectedStudent && <Student student={student} />}
+			{selectedCourse && selectedStudent && <StudentInfo student={student} />}
 		</main>
 	)
 }

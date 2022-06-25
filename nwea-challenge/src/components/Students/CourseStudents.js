@@ -1,14 +1,15 @@
+import Student from './Student'
 const CourseStudents = ({ students, onStudentSelect }) => {
 	return (
 		<section>
 			<h1>Students</h1>
-			<ul>
+			<ul className='list-group'>
 				{students.map((student) => (
-					<li
+					<Student
 						key={student.studentName}
-						onClick={() => onStudentSelect(student.studentName)}>
-						{student.studentName}
-					</li>
+						onStudentSelect={onStudentSelect}
+						studentName={student.studentName}
+					/>
 				))}
 			</ul>
 		</section>
