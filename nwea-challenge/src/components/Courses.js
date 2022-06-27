@@ -1,5 +1,11 @@
 import ListGroup from './Common/ListGroup'
-const AllCourses = ({ courses, onCourseSelect }) => {
+
+/* 
+Courses passes unique params to Common component ListGroup
+to display all the courses. 
+*/
+
+const Courses = ({ courses, onCourseSelect }) => {
 	return (
 		<section>
 			<ListGroup
@@ -13,4 +19,4 @@ const AllCourses = ({ courses, onCourseSelect }) => {
 	)
 }
 
-export default AllCourses
+export default Courses

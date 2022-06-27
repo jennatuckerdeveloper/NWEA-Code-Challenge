@@ -1,23 +1,62 @@
-# Getting Started with Create React App
+# NWEA Technical Code Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React app completes a coding challenge for NWEA.
 
-## Available Scripts
+The full instructions are included in `instructions.pdf` but will likely need to be opened outside of a code editor in a PDF reader (such as `Preview` on Mac).
 
-In the project directory, you can run:
+## Specific Implementation And Reasoning
 
-### `npm start`
+- This app uses React function components with hooks, specifically `useState` and `useEffect` rather than React class components. React previously recommended class components for stateful components and function components for stateless components. But the trend in React has been moving towards the use of function components with hooks and away from class components.
 
-Runs the app in the development mode.\
+- This app uses Bootstrap styles, as the complexity added to the code should not be significant enough to distract from the focus of how the React components are composed and makes the example app much easier to quickly take in at a glance. The main goals were 1) to show the user what was clickable 2) to make the `ListGroup` component dynamic using grid.
+
+- This app does not use TypeScript, as the developer was familiar with TypeScript and the general value of enforcing types in JavaScript (in this case with a strongly typed language) but not already proficient in using it.
+
+- This app uses [`json-server`](https://www.npmjs.com/package/json-server) to deliver mock data, as this closely mirrors hitting backend endpoints without adding much complexity. This `README.md` includes a section on how to use a backup hardcoded version of the data instead of `json-server` to work with the React app.
+
+## Run the application
+
+Clone the GitHub repo to your local machine. You will need a recent version of `Node`.
+
+Change into the directory `nwea-challenge`. This is an app made with `create-react-app`.
+
+Inside the folder, at the same level as `package.json` run `npm install` to install dependencies.
+
+Two scripts need to run to use the app:
+
+Example data in `data.json` gets served using [`json-server`](https://www.npmjs.com/package/json-server).
+
+Use the script `npm run server` to serve the data to `http://localhost:5000/data`.
+
+In another terminal window, run `npm start` to run the React app in development mode.
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## To run without `json-server`
+
+In `src/services/httpService`:
+
+Change import to `import backupData from '../backupData.json'`.
+
+And `getCourses` return statement to `return backupData.data`.
+
+## Interesting unexpected behavior that useEffect runs twice
+
+[Explanation here](https://www.techiediaries.com/react-18-useeffect/#:~:text=If%20your%20application%20is%20acting,effect%20twice%20instead%20of%20once.), in React 18, useEffect gets called twice when in both strict mode and development mode.
+
+### Run tests with script `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+## Create-React-App Also Includes Available Scripts
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+In the project directory, you can run:
 
 ### `npm run build`
 

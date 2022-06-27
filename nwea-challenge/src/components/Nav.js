@@ -1,3 +1,5 @@
+// Nav shows breadcrumbs to allow the user to backtrack.  
+// The clickable links have a distinct blue color. 
 const Nav = ({
 	selectedCourse,
 	selectedStudent,

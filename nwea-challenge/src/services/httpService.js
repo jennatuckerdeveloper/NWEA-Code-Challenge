@@ -1,3 +1,5 @@
+// Bridging http client to generic interface for easy replacement. 
+
 import axios from 'axios'
 
 export const http = {
