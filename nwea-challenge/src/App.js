@@ -72,7 +72,6 @@ function App() {
 		setSelectedCourse(null)
 		clearSelectedStudent()
 	}
-	console.log('render?', courses)
 	return (
 		<div className='App '>
 			<Nav
