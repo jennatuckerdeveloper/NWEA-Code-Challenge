@@ -10,39 +10,45 @@ const Main = ({
 	selectedStudent,
 	onStudentSelect
 }) => {
-	// Derived state by filtering courses when user selects a course.
+	// Derived state from courses called when user has selected course.
 	const getStudents = () => {
-		const chosenCourse = courses.filter(
+		const chosenCourse = courses.find(
 			(course) => course.className === selectedCourse
 		)
-		return chosenCourse[0].students
+		return chosenCourse ? chosenCourse.students : null
 	}
 
-	// Specific course's students.
+	// If selectedCourse, get specific course's students.
 	const students = selectedCourse ? getStudents() : null
 
-	// Derived state by filtering students when user selects students.
+	// Derived state from courses when user selects course AND student.
 	const getStudent = (students) => {
-		const student = students.filter(
+		const student = students.find(
 			(student) => student.studentName === selectedStudent
 		)
-		return student[0]
+		return student ? student : null
 	}
 
-	// Specific student's info.
+	// If selectedCourse and selectedStudent, get specific student's info.
 	const student =
 		selectedCourse && selectedStudent ? getStudent(students) : null
 
 	return (
 		// Conditionally render 1 of 3 components.
 		<main className='main p-2'>
-			{!selectedCourse && (
+			{!selectedCourse && !selectedStudent && (
 				<Courses courses={courses} onCourseSelect={onCourseSelect} />
 			)}
 			{selectedCourse && !selectedStudent && (
-				<CourseStudents students={students} onStudentSelect={onStudentSelect} />
+				<CourseStudents
+					selectedCourse={selectedCourse}
+					students={students}
+					onStudentSelect={onStudentSelect}
+				/>
 			)}
-			{selectedCourse && selectedStudent && <Student student={student} />}
+			{selectedCourse && selectedStudent && (
+				<Student selectedCourse={selectedCourse} student={student} />
+			)}
 		</main>
 	)
 }
