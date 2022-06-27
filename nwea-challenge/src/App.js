@@ -5,7 +5,7 @@ import Nav from './components/Nav'
 
 // App controls highest level of state derivation.
 function App() {
-	// The app has 3 state values.
+	// The app has 3 primary state values.
 
 	// The courses get fetched when the app loads.
 	const [courses, setCourses] = useState([])
@@ -14,7 +14,7 @@ function App() {
 	const [selectedCourse, setSelectedCourse] = useState(null)
 	const [selectedStudent, setSelectedStudent] = useState(null)
 
-	// Simplest error state.
+	// And a 4th, the simplest error state.
 	const [displayError, setDisplayError] = useState(null)
 
 	// Fetch the courses.
