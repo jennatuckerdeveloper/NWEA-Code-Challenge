@@ -7,7 +7,7 @@ to display all the courses.
 
 const Courses = ({ courses, onCourseSelect }) => {
 	return (
-		<section>
+		<section id='courses'>
 			<ListGroup
 				title={'Courses'}
 				items={courses}
